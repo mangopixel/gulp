@@ -1,0 +1,21 @@
+{
+  "name": "app",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "Flugger <flugged@gmail.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7"
+  }
+}
