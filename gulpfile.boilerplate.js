@@ -1,7 +1,6 @@
-/*
- * Gulp configuration.
- */
-var config = {
+'use strict'
+
+require( './node_modules/mango-gulp/gulpfile' )( {
 
     /*
      * Application configuration
@@ -55,7 +54,4 @@ var config = {
     html: {
         minify: true
     }
-
-};
-
-module.exports = config;
+} );

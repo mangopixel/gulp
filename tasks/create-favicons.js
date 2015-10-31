@@ -5,12 +5,12 @@ module.exports = function ( gulp, options, plugins ) {
     gulp.task( 'create:favicons', function() {
 
         // Target built index file.
-        return gulp.src( options.config.source + '/' + options.config.favicon )
+        return gulp.src( options.config.source + '/assets/' + options.config.favicon )
 
             // Generate favicons.
             .pipe( plugins.favicons( {
                 files: {
-                    src: './' + options.config.source + '/favicon.png',
+                    src: './' + options.config.source + '/assets/favicon.png',
                     dest: '/favicons'
                 },
                 settings: {

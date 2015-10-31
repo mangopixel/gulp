@@ -16,10 +16,23 @@ module.exports = function ( gulp, options, plugins ) {
             // Catch and print out all errors
             .pipe( plugins.plumber( options.error ) )
 
+            // Wrap code within an immediately invoked function expression.
+            .pipe( plugins.iife() )
+
+            // Add Angular dependency injection annotations.
+            .pipe( plugins.ngAnnotate() )
+
             // Include bower files.
             .pipe( plugins.addSrc.prepend( plugins.mainBowerFiles(), {
                 base: './bower_components'
             } ) )
+
+            .pipe( plugins.cached( 'scripts' ) )
+
+            // Minify file.
+            .pipe( plugins.if ( options.config.js.minify, plugins.uglify() ) )
+
+            .pipe( plugins.remember( 'scripts' ) )
 
             // Start sourcemapping.
             .pipe( plugins.sourcemaps.init() )
@@ -27,22 +40,10 @@ module.exports = function ( gulp, options, plugins ) {
             // Concatenate all JavaScript files.
             .pipe( plugins.concat( 'app.js' ) )
 
-            // Validate file for errors.
-            .pipe( plugins.jsvalidate() )
-
-            // Add Angular dependency injection annotations.
-            .pipe( plugins.ngAnnotate() )
-
-            // Wrap code within an immediately invoked function expression.
-            .pipe( plugins.iife() )
-
-            // Minify file.
-            .pipe( plugins.if( options.config.js.minify, plugins.uglify() ) )
+            // Build file.
+            .pipe( gulp.dest( options.config.build ) )
 
             // End sourcemapping.
-            .pipe( plugins.sourcemaps.write( '.' ) )
-
-            // Build file.
-            .pipe( gulp.dest( options.config.build ) );
+            .pipe( plugins.sourcemaps.write( '.' ) );
     } );
 };

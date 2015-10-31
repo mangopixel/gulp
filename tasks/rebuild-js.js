@@ -3,6 +3,6 @@
  */
 module.exports = function ( gulp, options, plugins ) {
     gulp.task( 'rebuild:js', function( callback ) {
-        plugins.sequence( 'clean:js', 'build:js', 'revise:js', 'rebuild:html' )( callback );
+        plugins.sequence( 'lint:js', 'clean:js', 'build:js', 'revise:js', 'rebuild:html' )( callback );
     } );
 };

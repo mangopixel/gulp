@@ -13,6 +13,11 @@ module.exports = function ( gulp, options, plugins ) {
                 uid: options.config.analyticsId
             } ) )
 
+            // Change ng-* to data-ng-* for HTML5 validation.
+            .pipe( plugins.angularHtmlify( {
+                customPrefixes: [ 'ui-' ]
+            } ) )
+
             // Build file.
             .pipe( gulp.dest( options.config.build ) );
     } );
