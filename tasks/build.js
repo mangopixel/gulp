@@ -3,6 +3,6 @@
  */
 module.exports = function ( gulp, options, plugins ) {
     gulp.task( 'build', function( callback ) {
-        plugins.sequence( 'lint:js', 'build:js', 'build:sass', 'build:html' )( callback );
+        plugins.sequence( 'lint:js', 'build:js', 'build:sass', 'build:html', 'build:templatecache' )( callback );
     } );
 };
