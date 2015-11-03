@@ -1,20 +1,19 @@
 'use strict'
 
-require( './node_modules/mango-gulp/gulpfile' )( {
+var paths = {
+    source: 'src',
+    build: 'public'
+};
+
+require( 'mango-gulp' )( {
 
     /*
-     * Application configuration
+     * Application configuration.
      */
-    url: 'https://forbrukervalget.no',
     name: 'Forbrukervalget',
     description: '',
+    url: 'https://forbrukervalget.no',
     analyticsId: 'UA-12345678-1',
-
-    /*
-     * Notifier configuration.
-     */
-    notify: true,
-    sound: 'Pop',
 
     /*
      * Server configuration.
@@ -24,8 +23,8 @@ require( './node_modules/mango-gulp/gulpfile' )( {
     /*
      * Path configuration.
      */
-    source: 'src',
-    build: 'public',
+    source: paths.source,
+    build: paths.build,
 
     /*
      * Favicon configuration.
@@ -53,5 +52,17 @@ require( './node_modules/mango-gulp/gulpfile' )( {
      */
     html: {
         minify: true
-    }
+    },
+
+    /*
+     * Notifier configuration.
+     */
+    notify: true,
+    sound: 'Pop',
+
+    /*
+     * Gulp configuration.
+     */
+    defaultTask: [ 'lint:js', 'clean', 'build', 'revise', 'watch', 'serve', 'build:favicons', 'minify:html' ]
+
 } );

@@ -41,7 +41,7 @@ module.exports = function( config ) {
      * Define default task.
      */
     gulp.task( 'default', function( callback ) {
-        plugins.sequence( 'lint:js', 'clean', 'build', 'revise', 'watch', 'serve', 'build:favicons', 'minify:html' )( callback );
+        plugins.sequence.apply( this, config.defaultTask )( callback );
     } );
 
 }
