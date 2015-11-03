@@ -5,10 +5,13 @@
  */
 module.exports = function ( gulp, options, plugins ) {
     gulp.task( 'build:templatecache', function() {
+        
+        var filesIn = options.config.source + '/views/**/*.html';
+        var filesOut = options.config.build;
 
-        return gulp.src( options.config.source + 'views/**/*.html' )
+        return gulp.src( filesIn )
             .pipe( plugins.angularTemplatecache() )
-            .pipe( gulp.dest( options.config.build ) );
+            .pipe( gulp.dest( filesOut ) );
 
     } );
 };
