@@ -8,3 +8,4 @@ bower_components
 .bower-registry
 .bower-tmp
 *.swp
+npm-debug.log

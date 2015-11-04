@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 module.exports = function ( gulp, options, plugins ) {
     gulp.task( 'build:copy-views', function() {
