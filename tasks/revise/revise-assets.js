@@ -7,7 +7,8 @@ module.exports = function ( gulp, options, plugins ) {
         // Source files.
         var files = [
             options.config.build + '/**/*.js',
-            options.config.build + '/**/*.css'
+            options.config.build + '/**/*.css',
+            '!http://stromvalget.no/assets/css/app.css'
         ];
 
         // Target source files.

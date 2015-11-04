@@ -22,6 +22,6 @@ module.exports = function ( gulp, options, plugins ) {
             } ) )
 
             // Build manifest file.
-            .pipe( gulp.dest( '' ) )
+            .pipe( gulp.dest( '' ) );
     } );
 };

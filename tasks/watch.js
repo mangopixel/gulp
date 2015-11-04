@@ -11,7 +11,12 @@ module.exports = function ( gulp, options, plugins ) {
         gulp.watch( options.config.source + '/' + options.config.sass.source + '/**/*.scss', [ 'rebuild:sass' ] );
 
         // Rebuild HTML on changes.
-        gulp.watch( options.config.source + '/' + '/**/*.html', [ 'rebuild:html' ] );
+        gulp.watch( options.config.source + '/*.html', [ 'rebuild:html' ] ); 
+
+        // Copy added views
+        gulp.watch( options.config.source + '/views/**/*.html', [ 'build:copy-views' ]);
+
+        gulp.watch( options.config.source + '/assets/**/*.*', [ 'build:copy-assets' ]);
 
         // Reload BrowserSync on changes to index.html.
         gulp.watch( options.config.build + '/index.html' ).on( 'change', plugins.browserSync.reload );

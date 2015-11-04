@@ -1,3 +1,5 @@
+var history = require( 'connect-history-api-fallback' );
+
 /**
  * Connects to a local development server.
  */
