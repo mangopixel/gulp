@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "browser-sync": "^2.9.11",
+    "connect-history-api-fallback": "^1.1.0",
     "del": "^2.0.2",
     "eslint-plugin-angular": "^0.13.0",
     "gulp": "^3.9.0",
