@@ -27,6 +27,7 @@
     "gulp-eslint": "^1.0.0",
     "gulp-favicons": "^1.0.9",
     "gulp-filesize": "0.0.6",
+    "gulp-filter": "^3.0.1",
     "gulp-ga": "0.0.4",
     "gulp-if": "^2.0.0",
     "gulp-iife": "^0.1.0",

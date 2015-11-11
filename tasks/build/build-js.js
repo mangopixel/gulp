@@ -27,6 +27,9 @@ module.exports = function ( gulp, options, plugins ) {
                 base: './bower_components'
             } ) )
 
+            // Ignore non-js files
+            .pipe( plugins.filter( '**/*.js' ) )
+
             .pipe( plugins.cached( 'scripts' ) )
 
             // Minify file.
