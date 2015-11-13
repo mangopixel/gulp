@@ -21,10 +21,10 @@ module.exports = function ( gulp, options, plugins ) {
 
                 console.log( 'Mango-gulp: Added angular locale \'' + options.config.locale + '\' from \'' + localeFile + '\'' );
             } else {
-                console.log( 'Warning: Mango-gulp: Locale was specified but was not found at \'' + localeFile + '\'. Locale not added.' );
+                console.log( 'Mango-gulp warning: Locale was specified but was not found at \'' + localeFile + '\'. Locale not added.' );
             }
         } else {
-            console.log( 'Warning: Mango-gulp: No locale has been specified for angular. Specify in config.js and run bower install angular-i18n --save.' );
+            console.log( 'Mango-gulp warning: No locale has been specified for angular. Specify in config.js and run bower install angular-i18n --save.' );
         }
         
         console.log( files );

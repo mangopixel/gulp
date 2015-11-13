@@ -1,4 +1,4 @@
-var history = require( 'connect-history-api-fallback' );
+var historyApiFallback = require( 'connect-history-api-fallback' );
 
 /**
  * Connects to a local development server.
@@ -14,7 +14,7 @@ module.exports = function ( gulp, options, plugins ) {
             notify: false,
             server: {
                 baseDir: options.config.build,
-                middleware: [ history() ]
+                middleware: [ historyApiFallback() ]
             }
         }, callback );
     } );
