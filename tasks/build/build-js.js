@@ -18,6 +18,8 @@ module.exports = function ( gulp, options, plugins ) {
 
             if ( fs.existsSync( localeFile ) ) {
                 files.unshift( localeFile );
+
+                console.log( 'Mango-gulp: Added angular locale \'' + options.config.locale + '\' from \'' + localeFile + '\'' );
             } else {
                 console.log( 'Warning: Mango-gulp: Locale was specified but was not found at \'' + localeFile + '\'. Locale not added.' );
             }

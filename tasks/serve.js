@@ -13,7 +13,8 @@ module.exports = function ( gulp, options, plugins ) {
             port: options.config.port,
             notify: false,
             server: {
-                baseDir: options.config.build
+                baseDir: options.config.build,
+                middleware: [ history() ]
             }
         }, callback );
     } );
