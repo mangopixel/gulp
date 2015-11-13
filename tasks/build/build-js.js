@@ -14,11 +14,15 @@ module.exports = function ( gulp, options, plugins ) {
 
         // Include angular locale before project files, if it exists (kind of hacky way to find the right file. Is there a better way?)
         if ( options.config.locale ) {
-            var localeFile = 'bower_components/angular-i18n/angular-locale_' + options.config.locale.toLowerCase() + '.js';
+            var localeFile = './bower_components/angular-i18n/angular-locale_' + options.config.locale.toLowerCase() + '.js';
 
             if ( fs.existsSync( localeFile ) ) {
                 files.unshift( localeFile );
+            } else {
+                console.log( 'Warning: Mango-gulp: Locale was specified but was not found at \'' + localeFile + '\'. Locale not added.' );
             }
+        } else {
+            console.log( 'Warning: Mango-gulp: No locale has been specified for angular. Specify in config.js and run bower install angular-i18n --save.' );
         }
         
         console.log( files );
