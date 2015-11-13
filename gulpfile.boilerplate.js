@@ -16,6 +16,11 @@ require( 'mango-gulp' )( {
     analyticsId: 'UA-12345678-1',
 
     /*
+     * Language settings
+     */
+    locale: 'no',
+
+    /*
      * Server configuration.
      */
     port: 9000,
