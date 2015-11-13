@@ -1,3 +1,5 @@
+var fs = require( 'fs' );
+
 /**
  * Build JavaScript.
  */
@@ -9,6 +11,17 @@ module.exports = function ( gulp, options, plugins ) {
             options.config.source + '/' + options.config.js.source + '/**/*.module.js',
             options.config.source + '/' + options.config.js.source + '/**/*.js'
         ];
+
+        // Include angular locale before project files, if it exists (kind of hacky way to find the right file. Is there a better way?)
+        if ( options.config.locale ) {
+            var localeFile = 'bower_components/angular-i18n/angular-locale_' + options.config.locale.toLowerCase() + '.js';
+
+            if ( fs.existsSync( localeFile ) ) {
+                files.unshift( localeFile );
+            }
+        }
+        
+        console.log( files );
 
         // Target source files.
         return gulp.src( files )
@@ -27,7 +40,6 @@ module.exports = function ( gulp, options, plugins ) {
                 base: './bower_components'
             } ) )
 
-            // Ignore non-js files
             .pipe( plugins.filter( '**/*.js' ) )
 
             .pipe( plugins.cached( 'scripts' ) )
