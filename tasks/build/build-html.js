@@ -1,11 +1,28 @@
+var mergeStream = require( 'merge-stream' );
+
 /**
- * Build HTML.
+ * Build HTML from root of source folder.
  */
 module.exports = function ( gulp, options, plugins ) {
     gulp.task( 'build:html', function() {
 
-        // Target source files.
-        return gulp.src( options.config.source + '/*.html' )
+        // Source html files from root of source
+        var html = gulp.src( options.config.source + '/*.html' );
+        
+        // Source jade files from root of source
+        var jadeAsHtml = gulp.src( options.config.source + '/*.jade' )
+
+            // Handle errors gracefully
+            .pipe( plugins.plumber() )
+
+            // Transform jade to html
+            .pipe( plugins.jade() );
+
+        // Merge the html files into one stream
+        var fileStream = mergeStream( html, jadeAsHtml );
+
+        // Process the files as regular html
+        return fileStream
 
             // Inject Google Analytics script.
             .pipe( plugins.ga( {

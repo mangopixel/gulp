@@ -13,8 +13,11 @@ module.exports = function ( gulp, options, plugins ) {
         // Rebuild HTML on changes.
         gulp.watch( options.config.source + '/**/*.html', [ 'rebuild:html' ] ); 
 
-        // Copy added views on changes.
+        // Build views on changes to html files.
         gulp.watch( options.config.source + '/views/**/*.html', [ 'build:views' ]);
+
+        // Build views on changes to jade files.
+        gulp.watch( options.config.source + '/views/**/*.jade', [ 'build:views' ]);
 
         // Rebuild assets on changes.
         gulp.watch( options.config.source + '/assets/**/*.*', [ 'build:assets' ]);
