@@ -8,8 +8,15 @@ module.exports = function ( gulp, options, plugins ) {
 
         // Source files ordered, prioritising Angular modules.
         var files = [
+            
+            // Load angular modules
             options.config.source + '/' + options.config.js.source + '/**/*.module.js',
-            options.config.source + '/' + options.config.js.source + '/**/*.js'
+            
+            // Load all other js files
+            options.config.source + '/' + options.config.js.source + '/**/*.js',
+            
+            // Drop testfiles
+            '!' + options.config.source + '/' + options.config.js.source + '/**/*.spec.js',
         ];
 
         // Include angular locale before project files, if it exists (kind of hacky way to find the right file. Is there a better way?)
