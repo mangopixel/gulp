@@ -6,13 +6,17 @@ var mergeStream = require( 'merge-stream' );
 module.exports = function ( gulp, options, plugins ) {
     gulp.task( 'build:views', function() {
 
-        var viewsPath = options.config.source + '/views/**/*.html';
+        var viewsPath = options.config.source + '/views';
 
-        var html = gulp.src( viewsPath );
-        var jadeAsHtml = gulp.src( viewsPath )
+        // Source html
+        var html = gulp.src( viewsPath + '/**/*.html' );
+
+        // Source jade and convert to html
+        var jadeAsHtml = gulp.src( viewsPath + '/**/*.jade' )
             .pipe( plugins.plumber() )
             .pipe( plugins.jade() );
 
+        // Merge the streams and store files
         return mergeStream( jadeAsHtml, html )
             .pipe( gulp.dest( options.config.build + '/views' ) );
     } );
