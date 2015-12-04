@@ -9,16 +9,8 @@ module.exports = function ( gulp, options, plugins ) {
 
             // Generate favicons.
             .pipe( plugins.favicons( {
-                files: {
-                    src: './' + options.config.source + '/assets/favicon.png',
-                    dest: '/favicons'
-                },
-                settings: {
-                    background: '#1d1d1d',
-                    vinylMode: true
-                }
-            }, function ( html ) {
-                options.config._faviconHtml = html;
+                html: options.config.build + 'index.html',
+                background: '#1d1d1d',
             } ) )
 
             // Build files.
