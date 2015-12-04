@@ -9,7 +9,7 @@ module.exports = function ( gulp, options, plugins ) {
 
             // Generate favicons.
             .pipe( plugins.favicons( {
-                html: options.config.build + 'index.html',
+                html: options.config.build + '/index.html',
                 background: '#1d1d1d',
             } ) )
 
