@@ -11,7 +11,10 @@ module.exports = function ( gulp, options, plugins ) {
         gulp.watch( options.config.source + '/' + options.config.sass.source + '/**/*.scss', [ 'rebuild:sass' ] );
 
         // Rebuild HTML on changes.
-        gulp.watch( options.config.source + '/**/*.html', [ 'rebuild:html' ] ); 
+        gulp.watch( options.config.source + '/**/*.html', [ 'rebuild:html' ] );
+
+        // Rebuild jade on changes.
+        gulp.watch( options.config.source + '/**/*.jade', [ 'rebuild:html' ] );
 
         // Build views on changes to html files.
         gulp.watch( options.config.source + '/views/**/*.html', [ 'build:views' ]);
