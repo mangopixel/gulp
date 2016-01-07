@@ -8,7 +8,7 @@ module.exports = function ( gulp, options, plugins ) {
 
         // Source html files from root of source
         var html = gulp.src( options.config.source + '/*.html' );
-        
+
         // Source jade files from root of source
         var jadeAsHtml = gulp.src( options.config.source + '/*.jade' )
 
