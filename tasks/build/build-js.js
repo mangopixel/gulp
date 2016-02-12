@@ -28,7 +28,7 @@ module.exports = function ( gulp, options, plugins ) {
                 files.unshift( localeFile );
             }
             if ( fs.existsSync( momentLocaleFile ) ) {
-                files.unshift( localeFile );
+                files.unshift( momentLocaleFile );
             }
         } else {
             console.log( 'Mango-gulp warning: No locale has been specified for angular. Specify in config.js and run bower install angular-i18n --save.' );
