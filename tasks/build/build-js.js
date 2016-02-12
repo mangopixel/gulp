@@ -6,6 +6,8 @@ var fs = require( 'fs' );
 module.exports = function ( gulp, options, plugins ) {
     gulp.task( 'build:js', function() {
 
+        var localeFiles = [];
+
         // Source files ordered, prioritising Angular modules.
         var files = [
 
@@ -25,16 +27,14 @@ module.exports = function ( gulp, options, plugins ) {
             var momentLocaleFile = './bower_components/moment/locale/' + options.config.locale.toLowerCase() + '.js';
 
             if ( fs.existsSync( localeFile ) ) {
-                files.unshift( localeFile );
+                localeFiles.unshift( localeFile );
             }
             if ( fs.existsSync( momentLocaleFile ) ) {
-                files.unshift( momentLocaleFile );
+                localeFiles.unshift( momentLocaleFile );
             }
         } else {
             console.log( 'Mango-gulp warning: No locale has been specified for angular. Specify in config.js and run bower install angular-i18n --save.' );
         }
-
-        console.log( files );
 
         // Target source files.
         return gulp.src( files )
@@ -49,9 +49,14 @@ module.exports = function ( gulp, options, plugins ) {
             .pipe( plugins.ngAnnotate() )
 
             // Include bower files.
+            .pipe( plugins.addSrc.prepend( localeFiles ) )
+
+            // Include bower files.
             .pipe( plugins.addSrc.prepend( plugins.mainBowerFiles(), {
                 base: './bower_components'
             } ) )
+
+            .pipe(plugins.debug())
 
             .pipe( plugins.filter( '**/*.js' ) )
 
