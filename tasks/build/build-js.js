@@ -8,13 +8,13 @@ module.exports = function ( gulp, options, plugins ) {
 
         // Source files ordered, prioritising Angular modules.
         var files = [
-            
+
             // Load angular modules
             options.config.source + '/' + options.config.js.source + '/**/*.module.js',
-            
+
             // Load all other js files
             options.config.source + '/' + options.config.js.source + '/**/*.js',
-            
+
             // Drop testfiles
             '!' + options.config.source + '/' + options.config.js.source + '/**/*.spec.js',
         ];
@@ -22,18 +22,18 @@ module.exports = function ( gulp, options, plugins ) {
         // Include angular locale before project files, if it exists (kind of hacky way to find the right file. Is there a better way?)
         if ( options.config.locale ) {
             var localeFile = './bower_components/angular-i18n/angular-locale_' + options.config.locale.toLowerCase() + '.js';
+            var momentLocaleFile = './bower_components/moment/locale/' + options.config.locale.toLowerCase() + '.js';
 
             if ( fs.existsSync( localeFile ) ) {
                 files.unshift( localeFile );
-
-                console.log( 'Mango-gulp: Added angular locale \'' + options.config.locale + '\' from \'' + localeFile + '\'' );
-            } else {
-                console.log( 'Mango-gulp warning: Locale was specified but was not found at \'' + localeFile + '\'. Locale not added.' );
+            }
+            if ( fs.existsSync( momentLocaleFile ) ) {
+                files.unshift( localeFile );
             }
         } else {
             console.log( 'Mango-gulp warning: No locale has been specified for angular. Specify in config.js and run bower install angular-i18n --save.' );
         }
-        
+
         console.log( files );
 
         // Target source files.
