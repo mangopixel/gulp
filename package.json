@@ -1,6 +1,6 @@
 {
   "name": "mango-gulp",
-  "version": "1.0.45",
+  "version": "1.0.46",
   "description": "A Gulp boilerplate.",
   "main": "gulpfile.js",
   "scripts": {
@@ -28,7 +28,7 @@
     "gulp-favicons": "^2.1.3",
     "gulp-filesize": "0.0.6",
     "gulp-filter": "^3.0.1",
-    "gulp-ga": "0.0.4",
+    "gulp-ga": "0.0.7",
     "gulp-if": "^2.0.0",
     "gulp-jade": "^1.1.0",
     "gulp-jasmine": "^2.2.1",
