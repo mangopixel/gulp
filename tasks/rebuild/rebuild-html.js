@@ -3,6 +3,6 @@
  */
 module.exports = function ( gulp, options, plugins ) {
     gulp.task( 'rebuild:html', function( callback ) {
-        plugins.sequence( 'build:views', 'build:html', 'revise:replace', 'insert:favicons', 'minify:html' )( callback );
+        plugins.sequence( 'build:views', 'build:html', 'revise:replace', 'minify:html' )( callback );
     } );
 };
