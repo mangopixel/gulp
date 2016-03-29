@@ -10,8 +10,10 @@ module.exports = function ( gulp, options, plugins ) {
             // Generate favicons.
             .pipe( plugins.favicons( {
                 html: options.config.build + '/index.html',
-                background: '#1d1d1d',
-                path: 'favicons/'
+                path: '/favicons/',
+                icons: {
+                    opengraph: false
+                }
             } ) )
 
             // Build files.
