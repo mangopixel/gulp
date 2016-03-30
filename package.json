@@ -1,6 +1,6 @@
 {
   "name": "mango-gulp",
-  "version": "1.0.48",
+  "version": "1.0.52",
   "description": "A Gulp boilerplate.",
   "main": "gulpfile.js",
   "scripts": {
@@ -30,9 +30,9 @@
     "gulp-filter": "^3.0.1",
     "gulp-ga": "0.0.7",
     "gulp-if": "^2.0.0",
+    "gulp-iife": "^0.1.0",
     "gulp-jade": "^1.1.0",
     "gulp-jasmine": "^2.2.1",
-    "gulp-iife": "^0.1.0",
     "gulp-jshint": "^1.11.2",
     "gulp-jsvalidate": "^2.0.0",
     "gulp-load-plugins": "^1.0.0",
@@ -62,6 +62,7 @@
     "main-bower-files": "^2.9.0",
     "merge-stream": "^1.0.0",
     "metaparser": "^1.0.6",
-    "through2": "^2.0.0"
+    "through2": "^2.0.0",
+    "yargs": "^4.3.2"
   }
 }
