@@ -4,6 +4,10 @@
 module.exports = function ( gulp, options, plugins ) {
     gulp.task( 'revise:css', function() {
 
+        if ( ! options.config.sass.revise ) {
+            return;
+        }
+
         // Target source files.
         return gulp.src( options.config.build + '/**/*.css' )
 

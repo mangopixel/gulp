@@ -50,7 +50,8 @@ require( 'mango-gulp' )( {
      */
     sass: {
         source: 'sass',
-        minify: true
+        minify: true,
+        revise: true
     },
 
     /*
