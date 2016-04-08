@@ -4,6 +4,9 @@
 module.exports = function ( gulp, options, plugins ) {
     gulp.task( 'build:sass', function() {
 
+        if ( ! options.config.sass.includeBefore )
+            options.config.sass.includeBefore = [];
+
         // Target source files.
         return gulp.src( options.config.source + '/' + options.config.sass.source + '/**/*.scss' )
 
@@ -15,6 +18,9 @@ module.exports = function ( gulp, options, plugins ) {
 
             // Compile Sass.
             .pipe( plugins.sass( options.config.sass.options ) )
+
+            // Add custom css files
+            .pipe( plugins.addSrc( options.config.sass.includeBefore ) )
 
             // Add prefixes for old browsers.
             .pipe( plugins.autoprefixer() )
