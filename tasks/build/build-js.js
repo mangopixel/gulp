@@ -19,7 +19,22 @@ module.exports = function ( gulp, options, plugins ) {
 
             // Drop testfiles
             '!' + options.config.source + '/' + options.config.js.source + '/**/*.spec.js',
+
         ];
+
+        // Load additional files after original js
+        if ( options.config.js.includeAfter ) {
+            options.config.js.includeAfter.forEach( file => {
+                files.push( file );
+            } );
+        }
+
+        // Load additional files before original js
+        if ( options.config.js.includeBefore ) {
+            options.config.js.includeBefore.forEach( file => {
+                files.unshift(file);
+            } );
+        }
 
         // Include angular locale before project files, if it exists (kind of hacky way to find the right file. Is there a better way?)
         if ( options.config.locale ) {

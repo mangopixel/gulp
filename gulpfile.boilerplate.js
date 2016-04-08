@@ -42,7 +42,9 @@ require( 'mango-gulp' )( {
     js: {
         source: 'app',
         minify: true,
-        revise: true
+        revise: true,
+        includeBefore: [],
+        includeAfter: []
     },
 
     /*
