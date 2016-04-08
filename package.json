@@ -1,10 +1,10 @@
 {
   "name": "mango-gulp",
-  "version": "1.0.54",
+  "version": "1.0.57",
   "description": "A Gulp boilerplate.",
   "main": "gulpfile.js",
   "scripts": {
-    "postinstall": "mv gulpfile.boilerplate.js ../../gulpfile.js"
+    "postinstall": "mv -vn gulpfile.boilerplate.js ../../gulpfile.js"
   },
   "author": "",
   "license": "ISC",

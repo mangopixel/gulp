@@ -2,14 +2,20 @@
  * Add revision hashes to cache bust assets.
  */
 module.exports = function ( gulp, options, plugins ) {
-    gulp.task( 'revise:assets', function() {
+    gulp.task( 'revise:assets', function () {
 
         // Source files.
-        var files = [
-            options.config.build + '/**/*.js',
-            options.config.build + '/**/*.css',
-            '!http://stromvalget.no/assets/css/app.css'
-        ];
+        var files = [];
+
+        if ( options.config.js.revise ) {
+            files.push( options.config.build + '/**/*.js' );
+        }
+
+        if ( options.config.sass.revise ) {
+            files.push( options.config.build + '/**/*.css' );
+        }
+
+        files.push( '!http://stromvalget.no/assets/css/app.css' );
 
         // Target source files.
         return gulp.src( files )
