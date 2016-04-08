@@ -22,20 +22,6 @@ module.exports = function ( gulp, options, plugins ) {
 
         ];
 
-        // Load additional files after original js
-        if ( options.config.js.includeAfter ) {
-            options.config.js.includeAfter.forEach( file => {
-                files.push( file );
-            } );
-        }
-
-        // Load additional files before original js
-        if ( options.config.js.includeBefore ) {
-            options.config.js.includeBefore.forEach( file => {
-                files.unshift(file);
-            } );
-        }
-
         // Include angular locale before project files, if it exists (kind of hacky way to find the right file. Is there a better way?)
         if ( options.config.locale ) {
             var localeFile = './bower_components/angular-i18n/angular-locale_' + options.config.locale.toLowerCase() + '.js';
@@ -50,6 +36,8 @@ module.exports = function ( gulp, options, plugins ) {
         } else {
             console.log( 'Mango-gulp warning: No locale has been specified for angular. Specify in config.js and run bower install angular-i18n --save.' );
         }
+
+        console.log('---------------', options.config.js.includeBefore );
 
         // Target source files.
         return gulp.src( files )
@@ -71,7 +59,9 @@ module.exports = function ( gulp, options, plugins ) {
                 base: './bower_components'
             } ) )
 
-            .pipe(plugins.debug())
+            .pipe( plugins.addSrc.prepend( options.config.js.includeBefore ) )
+
+            .pipe( plugins.debug() )
 
             .pipe( plugins.filter( '**/*.js' ) )
 
