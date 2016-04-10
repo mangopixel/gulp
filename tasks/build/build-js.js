@@ -22,8 +22,8 @@ module.exports = function ( gulp, options, plugins ) {
 
         ];
 
-        if ( ! options.js.includeBefore )
-            options.js.includeBefore = [];
+        if ( ! options.config.js.includeBefore )
+            options.config.js.includeBefore = [];
 
         // Include angular locale before project files, if it exists (kind of hacky way to find the right file. Is there a better way?)
         if ( options.config.locale ) {
