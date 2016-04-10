@@ -15,8 +15,6 @@ module.exports = function ( gulp, options, plugins ) {
             files.push( options.config.build + '/**/*.css' );
         }
 
-        files.push( '!http://stromvalget.no/assets/css/app.css' );
-
         // Target source files.
         return gulp.src( files )
 
